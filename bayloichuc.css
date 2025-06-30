@@ -1,0 +1,28 @@
+#floating-wishes-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.floating-wish {
+  position: absolute;
+  font-size: 20px;
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  animation: floatUp 6s linear forwards;
+  white-space: nowrap;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}

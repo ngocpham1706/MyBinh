@@ -1,0 +1,77 @@
+/* Nút mở form */
+.mailbox-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2196f3;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 0 10px #2196f3;
+  transition: background 0.3s;
+}
+.mailbox-btn:hover {
+  background: #0b79d0;
+}
+
+/* Form nổi */
+.form-wrapper {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.wish-form {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+.wish-form h2 {
+  margin-top: 0;
+  color: #ff4081;
+  text-align: center;
+}
+
+.wish-form input,
+.wish-form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.wish-form button[type="submit"] {
+  width: 100%;
+  background: #ff4081;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: #ddd;
+  color: #333;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

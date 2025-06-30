@@ -1,0 +1,52 @@
+    /* Dải ảnh bên trái và phải */
+.gallery {
+  position: fixed;
+  top: 0;
+  width: 190px;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.left-gallery {
+  left: 60px;
+}
+
+.right-gallery {
+  right: 60px;
+}
+
+.gallery-track {
+  display: flex;
+  flex-direction: column;
+  animation: scrollGallery 20s linear infinite;
+}
+.left-gallery .gallery-track {
+  flex-direction: column-reverse;
+  animation: scrollReverse 20s linear infinite;
+}
+
+/* nhóm ảnh */
+.track-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #fff;
+}
+@keyframes scrollGallery {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollReverse {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+

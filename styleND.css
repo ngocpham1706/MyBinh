@@ -1,0 +1,60 @@
+.namebrithday {
+  position: absolute;
+  top: 150px; /* khoảng cách dưới dòng tiêu đề */
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 4px black;
+  margin: 0;
+  z-index: 1;
+}
+.namebrithday {
+  font-size: 6rem;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5, #4ade80);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 3s infinite linear;
+  margin-top: 10px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.title {
+  position: absolute;
+  top: 20px; /* cách lề trên */
+  left: 20%; /* giữa ngang màn hình */
+  right: 20%;
+  transform: translateX(-50%); /* đẩy lui 50% chiều rộng để thật sự căn giữa */
+  
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px black;
+  margin: 0;
+  padding: 0;
+  animation: pulse 2s infinite;
+  text-align: center;
+  z-index: 10;
+}
+h1.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  color: #ff4081;
+}
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50%      { transform: translateX(-50%) scale(1.05); opacity: 0.9; }
+}
+
+
+
+/* Hiệu ứng nhấp nháy nhẹ */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}

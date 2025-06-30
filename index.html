@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Cube Tách Khi Hover & Xoay Liên Tục</title>
+  <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="saoroi.css">
+  <link rel="stylesheet" href="bongbay.css">
+  <link rel="stylesheet" href="phaohoa.css">
+  <link rel="stylesheet" href="laplanh.css">
+  <link rel="stylesheet" href="styleND.css">
+  <link rel="stylesheet" href="lapphuong.css">
+  <link rel="stylesheet" href="cuonanh.css">
+  <link rel="stylesheet" href="cuonanh.css">
+  <link rel="stylesheet" href="body.css">
+  <link rel="stylesheet" href="thu.css">
+  <link rel="stylesheet" href="bayloichuc.css">
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+  <script src="saoroi.js"></script>
+  <script src="phaohoa.js"></script>
+  <script src="bongbay.js"></script>
+  <script src="thu.js"></script>
+  <script src="bayloichuc.js"></script>
+
+</head>
+<body>
+ <!-- Cuộn ảnh trái -->
+  <div class="gallery left-gallery">
+    <div class="gallery-track">
+      <img src="hinhanh/9.jpg" />
+      <img src="hinhanh/10.jpg" />
+      <img src="hinhanh/11.jpg" />
+      <img src="hinhanh/12.jpg" />
+      <img src="hinhanh/13.jpg" />
+      <img src="hinhanh/14.jpg" />
+      <img src="hinhanh/15.jpg" />
+      <img src="hinhanh/16.jpg" />
+      <img src="hinhanh/9.jpg" />
+      <img src="hinhanh/10.jpg" />
+      <img src="hinhanh/11.jpg" />
+      <img src="hinhanh/12.jpg" />
+      <img src="hinhanh/13.jpg" />
+      <img src="hinhanh/14.jpg" />
+      <img src="hinhanh/15.jpg" />
+      <img src="hinhanh/16.jpg" />
+    </div>
+  </div>
+  <!-- Nội dung chính -->
+  <div class="container">
+    <h1 class="title bounce-text">
+  <span>🎂</span>
+  <span>C</span><span>h</span><span>ú</span><span>c</span>
+  <span> </span>
+  <span>m</span><span>ừ</span><span>n</span><span>g</span>
+  <span> </span>
+  <span>s</span><span>i</span><span>n</span><span>h</span>
+  <span> </span>
+  <span>n</span><span>h</span><span>ậ</span><span>t</span>
+  <span>!</span>
+  <span>🎉</span>
+</h1>
+
+    <h1 class="namebrithday">Mỹ Bình</h1>
+    <div class="scene">
+      <div class="cube">
+        <div class="cube-face front"></div>
+        <div class="cube-face back"></div>
+        <div class="cube-face right"></div>
+        <div class="cube-face left"></div>
+        <div class="cube-face top"></div>
+        <div class="cube-face bottom"></div>
+      </div>
+    </div>
+  </div>
+ <!-- Cuộn ảnh phải -->
+  <div class="gallery right-gallery">
+    <div class="gallery-track">
+      <img src="hinhanh/17.jpg" />
+      <img src="hinhanh/18.jpg" />
+      <img src="hinhanh/19.jpg" />
+      <img src="hinhanh/20.jpg" />
+      <img src="hinhanh/21.jpg" />
+      <img src="hinhanh/22.jpg" />
+      <img src="hinhanh/23.jpg" />
+      <img src="hinhanh/24.jpg" />
+      <img src="hinhanh/17.jpg" />
+      <img src="hinhanh/18.jpg" />
+      <img src="hinhanh/19.jpg" />
+      <img src="hinhanh/20.jpg" />
+      <img src="hinhanh/21.jpg" />
+      <img src="hinhanh/22.jpg" />
+      <img src="hinhanh/23.jpg" />
+      <img src="hinhanh/24.jpg" />
+    </div>
+  </div>
+
+<!-- Nút mở form -->
+<button id="openFormBtn" class="mailbox-btn">📬 Gửi lời chúc</button>
+
+<!-- Form ẩn ban đầu -->
+<div id="formWrapper" class="form-wrapper" style="display: none;">
+  <form class="wish-form" action="https://formspree.io/f/meoknebv" method="POST">
+    <h2>💌 Gửi lời chúc</h2>
+    <input type="text" name="name" placeholder="Tên của bạn" required>
+    <textarea name="message" rows="5" placeholder="Nhập lời chúc của bạn..." required></textarea>
+    <button type="submit">Gửi lời chúc 🎉</button>
+    <button type="button" id="closeFormBtn" class="close-btn">❌ Đóng</button>
+  </form>
+</div>
+
+ <!-- Hiệu ứng -->
+  <div id="stars-container"></div>
+  <div id="balloon-container"></div>
+  <div id="sparkle-container"></div>
+  <canvas id="fireworks"></canvas>
+<div id="floating-wishes-container"></div>
+
+  <!-- Nhạc nền -->
+  <audio id="birthday-audio" autoplay loop muted>
+    <source src="soundhappybrighday.mp3" type="audio/mpeg" />
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+  </audio>
+
+  <!-- Nút bật/tắt nhạc -->
+  <button onclick="toggleMusic()" style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+    🔈 Bật/Tắt nhạc
+  </button>
+
+  <!-- JavaScript xử lý -->
+  <script>
+    // Bật nhạc khi có click đầu tiên
+    window.addEventListener('click', () => {
+      const audio = document.getElementById('birthday-audio');
+      audio.muted = false;
+      audio.play();
+    }, { once: true });
+
+    function toggleMusic() {
+      const audio = document.getElementById('birthday-audio');
+      if (audio.paused || audio.muted) {
+        audio.muted = false;
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    // Hiện/ẩn form
+    document.addEventListener('DOMContentLoaded', function () {
+      const openBtn = document.getElementById('openFormBtn');
+      const closeBtn = document.getElementById('closeFormBtn');
+      const formWrapper = document.getElementById('formWrapper');
+
+      openBtn.addEventListener('click', () => {
+        formWrapper.style.display = 'block';
+      });
+
+      closeBtn.addEventListener('click', () => {
+        formWrapper.style.display = 'none';
+      });
+    });
+  </script>
+<!-- Gõ chữ -->
+<div class="typed-wrapper">
+  <h2 class="typed-output"></h2>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    new Typed(".typed-output", {
+      strings: [
+        "Chúc mừng sinh nhật Mỹ Bình! 🎂",
+        "Chúc bạn luôn vui vẻ, xinh đẹp và hạnh phúc! 🌸",
+        "Mãi là chính mình và rạng rỡ mỗi ngày! 💖"
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true,
+    });
+  });
+</script>
+
+</body>
+</html>
